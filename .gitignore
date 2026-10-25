@@ -1,0 +1,12 @@
+# Godot 4
+.godot/
+*.translation
+
+# Mono / C#
+.mono/
+data_*/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

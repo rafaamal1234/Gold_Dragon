@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d36c67qi7l4hc"]
+
+[ext_resource type="Script" uid="uid://cq57d6chul8ug" path="res://Scripts/story.gd" id="1_pwpkg"]
+[ext_resource type="Texture2D" uid="uid://df047bctlyhtp" path="res://Assets/gold dragon assets/origbig.png" id="6_bl70o"]
+[ext_resource type="FontFile" uid="uid://cun0db27swhi7" path="res://Assets/Pixelon.ttf" id="6_u0xp4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lh3an"]
+load_path = "res://.godot/imported/IMG_5039.PNG-910edd33d7c0a1bef5774ec6c95c3427.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u5g7b"]
+load_path = "res://.godot/imported/IMG_5040.PNG-09915eb214a211c0f42f15be6fdd46ba.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gqu6k"]
+load_path = "res://.godot/imported/3.png-a42c5470fcea5b1c40e9e65ed4197c33.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u0xp4"]
+load_path = "res://.godot/imported/4.png-f85a64f5e3f0128dcaab6d6b47fcb45d.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4ayt"]
+bg_color = Color(0, 0, 0, 0.7607843)
+
+[node name="Story" type="Control" unique_id=2128751178]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pwpkg")
+backgrounds = Array[Texture2D]([SubResource("CompressedTexture2D_lh3an"), SubResource("CompressedTexture2D_u5g7b"), SubResource("CompressedTexture2D_gqu6k"), SubResource("CompressedTexture2D_u0xp4")])
+texts = Array[String](["There lived a dragon in a cave named Aiden the Annihilator of Peasents. One day, he was admiring his precious treasure. After some time he got hungry, and decides to leave the cave to find something to eat.", "While Aiden was away, some thieves arrived with empty baskets and to carry away his treasure.", "Aiden returns happily with some food expecting to eat his food on top of his treasure. But instead, he finds an empty cave.", "Overcome by sadness, Aiden drowns himself in the little wine he has left. After mulling over his loss, the great dragon comes to a decision- he will find the theives and reclaim the treasure that is rightfully his!"])
+next_scene = "uid://bw4aqk0mv5esk"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1769580899]
+layout_mode = 0
+offset_top = -144.0
+offset_right = 1368.0
+offset_bottom = 624.0
+texture = ExtResource("6_bl70o")
+expand_mode = 1
+
+[node name="Background" type="TextureRect" parent="." unique_id=1418586389]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextPanel" type="PanelContainer" parent="." unique_id=473113106]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4ayt")
+
+[node name="StoryText" type="Label" parent="TextPanel" unique_id=883150657]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_u0xp4")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bw4aqk0mv5esk"]
+
+[ext_resource type="Script" uid="uid://i77xk2ijb3sj" path="res://Scripts/world_map.gd" id="1_cwbjy"]
+[ext_resource type="Texture2D" uid="uid://cviajbm3c675r" path="res://Assets/gold dragon assets/orig_big.png" id="2_pykxj"]
+[ext_resource type="Texture2D" uid="uid://brivpmnokajul" path="res://Assets/gold dragon assets/Kingdom1.png" id="3_1huhg"]
+[ext_resource type="Texture2D" uid="uid://cgnbct02i1i4e" path="res://Assets/gold dragon assets/Kingdom1-Light.png" id="4_k3mpa"]
+[ext_resource type="Script" uid="uid://belhfbs53j342" path="res://Scripts/sun_beam_kingdom.gd" id="5_bgae6"]
+[ext_resource type="FontFile" uid="uid://cun0db27swhi7" path="res://Assets/Pixelon.ttf" id="6_v5ucs"]
+[ext_resource type="Texture2D" uid="uid://svoxdkgcpkmq" path="res://Assets/gold dragon assets/Kingdom2.png" id="7_6fcl7"]
+[ext_resource type="Texture2D" uid="uid://dr2n6dbw7onai" path="res://Assets/gold dragon assets/Kingdom2-dark.png" id="8_1ni1k"]
+[ext_resource type="Texture2D" uid="uid://wrw21hof21rl" path="res://Assets/gold dragon assets/05.png" id="9_o32km"]
+[ext_resource type="Texture2D" uid="uid://dtbumc4lptws6" path="res://Assets/gold dragon assets/BACK.png" id="10_pykxj"]
+[ext_resource type="Texture2D" uid="uid://olvt5xmlu6ud" path="res://Assets/gold dragon assets/BACK-Dark.png" id="11_1huhg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4ayt"]
+bg_color = Color(0, 0, 0, 0.4745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts72d"]
+bg_color = Color(0, 0, 0, 0.45490196)
+
+[node name="WorldMap" type="Control" unique_id=1658556243]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwbjy")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2070159015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_pykxj")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Kingdoms" type="Control" parent="." unique_id=2142565788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SunBeam Kingdom" type="TextureButton" parent="Kingdoms" unique_id=294394969]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 16.0
+offset_right = 472.0
+offset_bottom = 608.0
+texture_normal = ExtResource("3_1huhg")
+texture_pressed = ExtResource("4_k3mpa")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_bgae6")
+
+[node name="NameLabel" type="Label" parent="Kingdoms/SunBeam Kingdom" unique_id=1468005656]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 408.0
+offset_right = 320.0
+offset_bottom = 444.0
+theme_override_colors/font_color = Color(0.9785, 1, 0.57, 1)
+theme_override_fonts/font = ExtResource("6_v5ucs")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4ayt")
+text = " Sun-Beam Kingdom "
+
+[node name="LockIcon" type="TextureRect" parent="Kingdoms/SunBeam Kingdom" unique_id=524689703]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 408.0
+offset_right = 24.0
+offset_bottom = 448.0
+
+[node name="Enchanted Forest" type="TextureButton" parent="Kingdoms" unique_id=820310480]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 56.0
+offset_right = 976.0
+offset_bottom = 584.0
+texture_normal = ExtResource("7_6fcl7")
+texture_disabled = ExtResource("8_1ni1k")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="Kingdoms/Enchanted Forest" unique_id=1994737884]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 416.0
+offset_right = 312.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.39254627, 0.82876754, 0.6721753, 1)
+theme_override_fonts/font = ExtResource("6_v5ucs")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_ts72d")
+text = " Enchanted Forest"
+
+[node name="LockIcon" type="TextureRect" parent="Kingdoms/Enchanted Forest" unique_id=190351569]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 376.0
+offset_right = 376.0
+offset_bottom = 472.0
+mouse_filter = 2
+texture = ExtResource("9_o32km")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=1538794248]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 64.0
+texture_normal = ExtResource("10_pykxj")
+texture_pressed = ExtResource("11_1huhg")
+ignore_texture_size = true
+stretch_mode = 5

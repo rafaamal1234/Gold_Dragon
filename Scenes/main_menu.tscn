@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dlhf0mlvh1i1c"]
+
+[ext_resource type="Script" uid="uid://dew0ky1ij2hx2" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://tumi3l14sg06" path="res://Assets/gold dragon assets/6.png" id="2_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://bkq6s1sqav4it" path="res://Assets/gold dragon assets/Logo-2.png" id="3_trj04"]
+[ext_resource type="Texture2D" uid="uid://ipsss5hxeel6" path="res://Assets/gold dragon assets/Play.png" id="4_16hvj"]
+[ext_resource type="Texture2D" uid="uid://krk3md7yeu4h" path="res://Assets/gold dragon assets/Play_Dark.png" id="5_trj04"]
+[ext_resource type="Texture2D" uid="uid://n7v57evruiwx" path="res://Assets/gold dragon assets/Credits.png" id="6_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://bgn7yns6getjb" path="res://Assets/gold dragon assets/Credits-Dark.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://6fvd1ijde6om" path="res://Assets/gold dragon assets/Exit.png" id="8_vtepg"]
+[ext_resource type="Texture2D" uid="uid://ql06vuudkuja" path="res://Assets/gold dragon assets/Exit-Dark.png" id="9_vr1f0"]
+
+[node name="MainMenu" type="Control" unique_id=1299752819]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_28flt")
+
+[node name="Background" type="TextureRect" parent="." unique_id=309344545]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 656.0
+mouse_filter = 2
+texture = ExtResource("2_yhxw7")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="GameTtile" type="TextureRect" parent="." unique_id=1421849269]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 652.0
+mouse_filter = 2
+texture = ExtResource("3_trj04")
+metadata/_edit_lock_ = true
+
+[node name="Button_Manager" type="Control" parent="GameTtile" unique_id=1023224260]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="TextureButton" parent="GameTtile/Button_Manager" unique_id=1378798852]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 320.0
+offset_right = 736.0
+offset_bottom = 422.0
+texture_normal = ExtResource("4_16hvj")
+texture_pressed = ExtResource("5_trj04")
+stretch_mode = 5
+
+[node name="Credits" type="TextureButton" parent="GameTtile/Button_Manager" unique_id=573409460]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 424.0
+offset_right = 736.0
+offset_bottom = 500.0
+texture_normal = ExtResource("6_t1dhk")
+texture_pressed = ExtResource("7_16hvj")
+stretch_mode = 5
+
+[node name="Exit" type="TextureButton" parent="GameTtile/Button_Manager" unique_id=1881476590]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 496.0
+offset_right = 736.0
+offset_bottom = 568.0
+texture_normal = ExtResource("8_vtepg")
+texture_pressed = ExtResource("9_vr1f0")
+stretch_mode = 5
+
+[connection signal="pressed" from="GameTtile/Button_Manager/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GameTtile/Button_Manager/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="GameTtile/Button_Manager/Exit" to="." method="_on_exit_pressed"]

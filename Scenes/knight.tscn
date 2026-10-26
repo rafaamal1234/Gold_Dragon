@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://mu87bthtxq7u"]
+
+[node name="Knight" type="CharacterBody2D" unique_id=1267944481]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=225827661]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1949379796]
+
+[node name="Wallcheck" type="RayCast2D" parent="." unique_id=1091681584]
+
+[node name="Ledgecheck" type="RayCast2D" parent="." unique_id=368542317]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2016108357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1004226567]

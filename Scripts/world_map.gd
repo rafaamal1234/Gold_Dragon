@@ -7,7 +7,7 @@ const KINGDOM_ORDER := ["SunBeam Kingdom", "Enchanted Forest"]
 
 # Scenes to open when a kingdom is clicked (create these later)
 const KINGDOM_SCENES := {
-	"SunBeam Kingdom": "res://scenes/kingdom_sunbeam.tscn",
+	"SunBeam Kingdom": "res://Scenes/sun_beam_map.tscn",
 	"Enchanted Forest": "res://scenes/kingdom_enchantedforest.tscn",
 }
 

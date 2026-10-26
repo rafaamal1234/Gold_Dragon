@@ -1,8 +1,55 @@
 [gd_scene format=3 uid="uid://d36c67qi7l4hc"]
 
-[ext_resource type="Script" uid="uid://cq57d6chul8ug" path="res://Scripts/story.gd" id="1_pwpkg"]
 [ext_resource type="Texture2D" uid="uid://df047bctlyhtp" path="res://Assets/gold dragon assets/origbig.png" id="6_bl70o"]
 [ext_resource type="FontFile" uid="uid://cun0db27swhi7" path="res://Assets/Pixelon.ttf" id="6_u0xp4"]
+
+[sub_resource type="GDScript" id="GDScript_y0hhn"]
+script/source = "extends Control
+
+const SAVE_PATH := \"user://save.cfg\"
+
+@export var backgrounds: Array[Texture2D]
+@export_multiline var texts: Array[String]
+@export_file(\"*.tscn\") var next_scene: String = \"res://scenes/main_menu.tscn\"
+
+@onready var background: TextureRect = $Background
+@onready var story_text: Label = $TextPanel/StoryText
+
+var index := 0
+var tween: Tween
+
+func _ready():
+	show_panel()
+
+func show_panel():
+	background.texture = backgrounds[index]
+	story_text.text = texts[index] if index < texts.size() else \"\"
+	story_text.visible_ratio = 0.0
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(story_text, \"visible_ratio\", 1.0, 1.5)
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# If the text is still typing, the first click finishes it
+		if tween and tween.is_running():
+			tween.kill()
+			story_text.visible_ratio = 1.0
+			return
+		index += 1
+		if index < backgrounds.size():
+			show_panel()
+		else:
+			mark_story_seen()
+			get_tree().change_scene_to_file(next_scene)
+
+func mark_story_seen():
+	var config := ConfigFile.new()
+	config.load(SAVE_PATH)  # keeps any other saved data
+	config.set_value(\"progress\", \"story_seen\", true)
+	config.save(SAVE_PATH)
+"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lh3an"]
 load_path = "res://.godot/imported/IMG_5039.PNG-910edd33d7c0a1bef5774ec6c95c3427.ctex"
@@ -27,7 +74,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_pwpkg")
+script = SubResource("GDScript_y0hhn")
 backgrounds = Array[Texture2D]([SubResource("CompressedTexture2D_lh3an"), SubResource("CompressedTexture2D_u5g7b"), SubResource("CompressedTexture2D_gqu6k"), SubResource("CompressedTexture2D_u0xp4")])
 texts = Array[String](["There lived a dragon in a cave named Aiden the Annihilator of Peasents. One day, he was admiring his precious treasure. After some time he got hungry, and decides to leave the cave to find something to eat.", "While Aiden was away, some thieves arrived with empty baskets and to carry away his treasure.", "Aiden returns happily with some food expecting to eat his food on top of his treasure. But instead, he finds an empty cave.", "Overcome by sadness, Aiden drowns himself in the little wine he has left. After mulling over his loss, the great dragon comes to a decision- he will find the theives and reclaim the treasure that is rightfully his!"])
 next_scene = "uid://bw4aqk0mv5esk"

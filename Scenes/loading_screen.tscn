@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://chkdt0v6mdt5f"]
+
+[ext_resource type="Script" uid="uid://cbe7qun3n4e62" path="res://Scripts/loading_screen.gd" id="1_fayou"]
+[ext_resource type="Texture2D" uid="uid://df047bctlyhtp" path="res://Assets/gold dragon assets/origbig.png" id="2_1godw"]
+[ext_resource type="Texture2D" uid="uid://cojfdf6k54ey2" path="res://Assets/gold dragon assets/Loading.png" id="3_yisgd"]
+[ext_resource type="Texture2D" uid="uid://busivmoeouhhv" path="res://Assets/gold dragon assets/Coin.png" id="4_gegoj"]
+
+[node name="LoadingScreen" type="Control" unique_id=986951938]
+layout_mode = 3
+anchor_right = 1.1810001
+anchor_bottom = 1.1850001
+offset_right = 23.487915
+offset_bottom = 0.11993408
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fayou")
+
+[node name="Background" type="TextureRect" parent="." unique_id=474700957]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -240.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1godw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1143293774]
+layout_mode = 1
+offset_left = 304.0
+offset_top = 472.0
+offset_right = 856.0
+offset_bottom = 632.0
+texture = ExtResource("3_yisgd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Dots" type="HBoxContainer" parent="." unique_id=1406582235]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.97200006
+anchor_top = 0.938
+anchor_right = 0.97200006
+anchor_bottom = 0.938
+offset_left = -465.24805
+offset_top = -144.38403
+offset_right = -202.24805
+offset_bottom = -116.38403
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Dot1" type="TextureRect" parent="Dots" unique_id=23729217]
+layout_mode = 2
+texture = ExtResource("4_gegoj")
+stretch_mode = 5
+
+[node name="Dot2" type="TextureRect" parent="Dots" unique_id=757513735]
+layout_mode = 2
+texture = ExtResource("4_gegoj")
+stretch_mode = 5
+
+[node name="Dot3" type="TextureRect" parent="Dots" unique_id=1232679829]
+layout_mode = 2
+texture = ExtResource("4_gegoj")
+stretch_mode = 5
